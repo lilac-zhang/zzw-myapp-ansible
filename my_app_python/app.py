@@ -5,10 +5,10 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    url = "https://dog.ceo/api/breeds/image/random/3"  # 👈 关键
+    url = "https://dog.ceo/api/breeds/image/random/3"  
     response = requests.get(url)
     data = response.json()
-    images = data["message"]  # 👈 这里变成 list
+    images = data["list"]  
 
     # 生成 HTML
     img_html = "".join([f'<img src="{img}" width="300">' for img in images])

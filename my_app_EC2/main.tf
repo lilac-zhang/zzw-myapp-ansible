@@ -2,7 +2,7 @@ provider "aws" {
   region = "ap-northeast-1"
 }
 
-# 安全组（开放22和80，5000）
+# セキュリティーグループ（22, 80，5000）
 resource "aws_security_group" "web_sg" {
   name        = "web-sg"
   description = "allow ssh and http"
