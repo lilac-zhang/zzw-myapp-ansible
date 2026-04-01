@@ -59,16 +59,13 @@ resource "aws_instance" "web" {
               #!/bin/bash
               yum update -y
               
-              yum install -y git python3-pip
-              cd /home/ec2-user
-              git clone --depth=1 --filter=blob:none --sparse https://github.com/lilac-zhang/zzw-myapp0326.git
-              cd zzw-myapp0326
+              yum install -y docker
+              systemctl start docker
+              systemctl enable docker
 
-              git sparse-checkout set my_app0326_python
-              cd my_app0326_python
-              python3 -m venv venv
-              venv/bin/pip install flask requests
-              nohup venv/bin/python app.py > app.log 2>&1 &
+              docker pull lilaczhang/zzw-myapp:latest
+
+              docker run -d -p 80:5000 --name myapp lilaczhang/zzw-myapp:latest
              
               EOF
 
