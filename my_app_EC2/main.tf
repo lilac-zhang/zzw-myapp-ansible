@@ -65,7 +65,7 @@ resource "aws_instance" "web" {
 
               docker pull lilaczhang/zzw-myapp:latest
 
-              docker run -d -p 80:5000 --name myapp lilaczhang/zzw-myapp:latest
+              docker run -d -p 5000:5000 --name myapp lilaczhang/zzw-myapp:latest
              
               EOF
 
