@@ -1,0 +1,10 @@
+# Terraform
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+# AWS key
+*.pem
+
+# mac
+.DS_Store
