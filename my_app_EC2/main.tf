@@ -55,18 +55,13 @@ resource "aws_instance" "web" {
 
   associate_public_ip_address = true
 
+
   user_data = <<-EOF
               #!/bin/bash
               yum update -y
-              
               yum install -y docker
-              systemctl start docker
               systemctl enable docker
-
-              docker pull lilaczhang/zzw-myapp:latest
-
-              docker run -d -p 5000:5000 --name myapp lilaczhang/zzw-myapp:latest
-             
+              ystemctl start docker
               EOF
 
   tags = {
